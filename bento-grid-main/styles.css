@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+/* Root */
+
+:root {
+    --clr-Purple-100: #dacffc;
+    --clr-Purple-500: #7650dc;
+    
+    --clr-Yellow-100: #f9eee1;
+    --clr-Yellow-500: #ffcb6b;
+
+    --clr-White: #ffffff;
+    --clr-Black: #121212;
+
+    --ff-main: "DM Sans", sans-serif;
+    --fs-body: 1.1rem;
+    --fs-heading: 1.7rem;
+    --fs-h1: 2.8rem;
+
+    --fw-400: 400;
+    --fw-500: 500;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles */
+
+body {
+    font-family: var(--ff-main);
+    font-weight: var(--fw-400);
+    font-size: var(--fs-body);
+    line-height: 1.2;
+    color: var(--clr-Black);
+    background-color: var(--clr-White);
+    padding: 2rem 1rem;
+    background-color: #f5f5f5;
+}
+
+img {
+    max-width: 80%;
+    display: block;
+}
+
+h2 {
+    font-size: var(--fs-heading);
+    font-family: var(--ff-main);
+    font-weight: var(--fw-500);
+    line-height: .9;
+}
+
+h1 {
+    font-family: var(--ff-main);
+    font-weight: var(--fw-500);
+    font-size: var(--fs-h1);
+}
+
+/* Layout Styles */
+
+.bento-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 13rem 13rem 13rem;
+    grid-template-areas: 
+    "column1 column2 column3"
+    "column1 column2 column3"
+    "column1 column4 column4"
+    ;
+    max-width: 60rem;
+    margin-inline: auto;
+    gap: 1rem;
+}
+
+.bento-grid-item--element {
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.inside-element {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.inside-element:nth-child(1) {
+    grid-template-columns: .94fr 2fr;
+}
+
+.bento-grid-container > *, .inside-element {
+    display: grid;
+    gap: 1rem;
+}
+
+.column-one {
+    grid-area: column1;
+}
+
+.column-two {
+    grid-area: column2;
+}
+
+.column-three {
+    grid-area: column3;
+}
+
+.column-four {
+    grid-area: column4;
+}
+
+/* UI Components */
+
+.create {
+    background-color: var(--clr-Yellow-100);
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.write {
+    background-color: var(--clr-Yellow-500);
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    padding-left: 1.4rem;
+}
+
+.write img {
+    max-width: 100%;
+}
+
+.social {
+    background-color: var(--clr-Purple-500);
+    color: var(--clr-White);
+    text-align: center;
+    display: grid;
+    place-content: center;
+    gap: .5rem;
+    padding: 2rem;
+}
+
+.social img {
+    max-width: 10rem;
+    margin-inline: auto;
+}
+
+.account {
+    background-color: var(--clr-White);
+    padding: 2rem;
+    display: grid;
+    place-content: center;
+}
+
+.schedule {
+    background-color: var(--clr-Yellow-500);
+    padding: 2rem;
+    display: grid;
+    place-content: center;
+}
+
+.graph {
+    background-color: var(--clr-Purple-100);
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+    gap: 1rem;
+}
+
+.graph h2, .graph small {
+    padding: 0rem 2rem;
+}
+
+.graph img {
+    max-width: 16rem;
+    position: relative;
+    left: 2rem;
+}
+
+.growth {
+    background-color: var(--clr-White);
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    padding: 1.4rem;
+}
+
+.followers {
+    background-color: var(--clr-Purple-500);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.4rem;
+    color: var(--clr-White);
+
+}
+
+/* Responsiveness */
+
+/* max width 950px */
+
+@media screen and (max-width:950px) {
+    .bento-grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 
+        "column1 column1"
+        "column2 column3"
+        "column2 column3"
+        "column4 column4"
+        ;
+    }
+    
+    .column-one {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .create {
+        background-color: var(--clr-Yellow-100);
+        display: grid;
+        place-content: center;
+        gap: 1rem;
+        padding: 2rem;
+        font-size: var(--fs-h1);
+    }
+
+    .create img {
+        max-width: 50%;
+    }
+    
+    .write {
+        background-color: var(--clr-Yellow-500);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .graph {
+        background-color: var(--clr-Purple-100);
+        display: grid;
+        place-content: center;
+        gap: 1.4rem;
+        padding: 2rem 0rem;
+    }
+
+    .graph img, .followers img {
+        max-width: 100%;
+    }
+
+}
+
+/* max width 650px */
+
+@media screen and (max-width:650px) {
+    .bento-grid-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+        "column1"
+        "column2"
+        "column3"
+        "column4"
+        ;
+    }
+
+    .inside-element, .inside-element:nth-child(1), .column-one {
+        grid-template-columns: 1fr;
+    }
+
+    .create {
+        background-color: var(--clr-Yellow-100);
+        display: grid;
+        place-content: center;
+        gap: 1rem;
+        padding: 2rem;
+    }
+
+    .create h2 {
+        font-size: var(--fs-h1);
+    }
+
+    .create img {
+        max-width: 40%;
+    }
+
+    .write h2, .account h2, .schedule h2 {
+        line-height: 1.2;
+    }
+
+    .account {
+        background-color: var(--clr-White);
+        padding: 2rem;
+        display: grid;
+        place-content: center;
+        text-align: center;
+    }
+    
+    .schedule {
+        background-color: var(--clr-Yellow-500);
+        padding: 2rem;
+        display: grid;
+        place-content: center;
+        text-align: center;
+    }
+
+.growth {
+    background-color: var(--clr-White);
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    padding: 1.4rem;
+}
+
+
+
+}
